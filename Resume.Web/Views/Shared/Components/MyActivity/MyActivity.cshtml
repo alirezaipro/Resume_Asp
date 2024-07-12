@@ -1,0 +1,28 @@
+﻿@using Resume.DAL.ViewModels.Activity
+@model List<ActivityDetailsViewModel>
+
+@if (Model != null && Model.Any())
+{
+    <div class="mt-1">
+        <h2 class="title title--h3">کاری که انجام می دهم</h2>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <!-- Case Item -->
+                <div class="col-12 col-lg-6">
+                    <div class="case-item">
+                        <img class="case-item__icon" src="@item.Icon" alt="@item.Title" />
+                        <div>
+                            <h3 class="title title--h4">@item.Title</h3>
+                            <p class="case-item__caption">
+                                @item.Description
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+        </div>
+    </div>
+}

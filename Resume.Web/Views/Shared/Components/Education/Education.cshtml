@@ -1,0 +1,22 @@
+﻿@model Resume.DAL.ViewModels.Education.FilterEducationViewModel
+
+@if (Model != null && Model.Entities.Any())
+{
+    <div class="col-12">
+        <h2 class="title title--h3"><img class="title-icon" src="/Site/assets/icons/icon-education.svg" alt=""/> تحصیلات</h2>
+        <div class="timeline">
+            @foreach (var education in Model.Entities)
+            {
+                <article class="timeline__item">
+                    <h5 class="title title--h5 timeline__title">@education.Title</h5>
+                    <span class="timeline__period">
+                        @education.Start-@(education.End.HasValue ? education.End.Value : "مشغول به تحصیل هستم")
+                    </span>
+                    <p class="timeline__description">
+                        @education.Description
+                    </p>
+                </article>
+            }
+        </div>
+    </div>
+}
